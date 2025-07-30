@@ -23,8 +23,13 @@ const Contact = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-gradient-hero relative">
-        <div className="container mx-auto px-4">
+      <section className="pt-24 pb-16 bg-gradient-hero relative overflow-hidden">
+        {/* Background Effects */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(31,248,45,0.25),transparent_60%)] dark:bg-[radial-gradient(circle_at_50%_50%,rgba(31,248,45,0.25),transparent_40%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(31,248,45,0.15),transparent_40%)] dark:bg-[radial-gradient(circle_at_30%_30%,rgba(31,248,45,0.15),transparent_25%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(31,248,45,0.2),transparent_50%)] dark:bg-[radial-gradient(circle_at_70%_70%,rgba(31,248,45,0.2),transparent_35%)]" />
+
+        <div className="container mx-auto px-4 relative z-10">
           {/* Back Button */}
           <div className="mb-8 animate-fade-in">
             <Button
