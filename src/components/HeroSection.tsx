@@ -8,18 +8,15 @@ const HeroSection = () => {
   return (
     <section className="min-h-screen bg-gradient-hero flex items-center justify-center relative overflow-hidden">
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(31,248,45,0.25),transparent_60%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(31,248,45,0.15),transparent_40%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(31,248,45,0.2),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(31,248,45,0.25),transparent_60%)] dark:bg-[radial-gradient(circle_at_50%_50%,rgba(31,248,45,0.25),transparent_40%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(31,248,45,0.15),transparent_40%)] dark:bg-[radial-gradient(circle_at_30%_30%,rgba(31,248,45,0.15),transparent_25%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(31,248,45,0.2),transparent_50%)] dark:bg-[radial-gradient(circle_at_70%_70%,rgba(31,248,45,0.2),transparent_35%)]" />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-6 items-center min-h-screen">
           {/* Video - Top on mobile, right on desktop */}
-          <div
-            className="order-1 lg:order-2 animate-fade-in-up"
-            style={{ animationDelay: "0.2s" }}
-          >
-            <div className="relative max-w-[200px] sm:max-w-xs md:max-w-sm mx-auto lg:ml-auto lg:mr-0 lg:ml-24 mb-8 lg:mb-0 mt-20 lg:mt-12">
+          <div className="order-1 lg:order-2 animate-fade-in-up">
+            <div className="relative max-w-[200px] sm:max-w-xs md:max-w-sm mx-auto lg:ml-auto lg:mr-0 lg:ml-28 mb-8 lg:mb-0 mt-20 lg:mt-12">
               <video
                 className="w-full h-auto rounded-2xl shadow-2xl border border-border/30"
                 autoPlay
