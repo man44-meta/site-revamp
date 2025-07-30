@@ -255,7 +255,7 @@ const Pricing = () => {
 
                   {/* CTA Button */}
                   <Button
-                    className="w-full"
+                    className={`w-full ${index === 0 ? "mt-[7.2rem]" : ""}`}
                     variant={plan.popular ? "default" : "outline"}
                     asChild
                   >
