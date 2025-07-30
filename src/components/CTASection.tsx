@@ -1,6 +1,6 @@
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { ArrowRight, Sparkles } from "lucide-react";
 
 const CTASection = () => {
   return (
@@ -13,25 +13,26 @@ const CTASection = () => {
             <div className="absolute top-4 right-4 opacity-20">
               <Sparkles className="h-12 w-12 text-primary animate-pulse" />
             </div>
-            
+
             <CardContent className="p-12 text-center relative z-10">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
                 What are you waiting for?
               </h2>
               <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Join thousands of Shopify merchants who have already transformed their stores 
-                with interactive shoppable videos. Start your journey today!
+                Join thousands of Shopify merchants who have already transformed
+                their stores with interactive shoppable videos. Start your
+                journey today!
               </p>
-              
+
               <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-                <Button 
+                <Button
                   size="lg"
                   className="bg-gradient-brand hover:opacity-90 shadow-brand text-lg px-8 py-3 group"
                   asChild
                 >
-                  <a 
-                    href="https://apps.shopify.com/shopclips-shoppable-clips" 
-                    target="_blank" 
+                  <a
+                    href="https://apps.shopify.com/shopclips-shoppable-clips"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center space-x-2"
                   >
@@ -39,13 +40,20 @@ const CTASection = () => {
                     <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </a>
                 </Button>
-                
-                <Button 
-                  size="lg" 
+
+                <Button
+                  size="lg"
                   variant="outline"
                   className="border-primary/30 hover:bg-primary/10 text-lg px-8 py-3"
+                  asChild
                 >
-                  Book a Demo
+                  <a
+                    href="https://calendly.com/abhinav-vplus/30min"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Book a Demo
+                  </a>
                 </Button>
               </div>
             </CardContent>

@@ -19,7 +19,7 @@ const Header = () => {
         <div className="hidden md:flex items-center space-x-6">
           <nav className="flex items-center space-x-8">
             <a
-              href="#about"
+              href="/about-us"
               className="text-foreground hover:text-primary transition-colors"
             >
               About us
@@ -31,7 +31,7 @@ const Header = () => {
               Pricing
             </a>
             <a
-              href="#blogs"
+              href="/blogs"
               className="text-foreground hover:text-primary transition-colors"
             >
               Blogs
@@ -53,7 +53,7 @@ const Header = () => {
               asChild
             >
               <a
-                href="https://shopclips-demo.myshopify.com"
+                href="https://shopclips-dev1.myshopify.com/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -63,8 +63,15 @@ const Header = () => {
             <Button
               size="sm"
               className="bg-gradient-brand hover:opacity-90 shadow-brand"
+              asChild
             >
-              Book a Demo
+              <a
+                href="https://calendly.com/abhinav-vplus/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Book a Demo
+              </a>
             </Button>
             <ThemeToggle />
           </div>
@@ -75,8 +82,15 @@ const Header = () => {
           <Button
             size="sm"
             className="bg-gradient-brand hover:opacity-90 shadow-brand"
+            asChild
           >
-            Demo
+            <a
+              href="https://shopclips-dev1.myshopify.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Demo
+            </a>
           </Button>
           <ThemeToggle />
         </div>

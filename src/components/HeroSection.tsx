@@ -74,8 +74,15 @@ const HeroSection = () => {
           <Button
             size="lg"
             className="bg-gradient-brand hover:opacity-90 shadow-brand text-lg px-8 py-3"
+            asChild
           >
-            Book a Demo
+            <a
+              href="https://calendly.com/abhinav-vplus/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Book a Demo
+            </a>
           </Button>
           <Button
             size="lg"
