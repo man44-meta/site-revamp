@@ -6,7 +6,15 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Mail, Phone, MapPin, Send, MessageSquare, Clock } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  MessageSquare,
+  Clock,
+  ArrowLeft,
+} from "lucide-react";
 
 const Contact = () => {
   return (
@@ -16,6 +24,21 @@ const Contact = () => {
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-gradient-hero relative">
         <div className="container mx-auto px-4">
+          {/* Back Button */}
+          <div className="mb-8 animate-fade-in">
+            <Button
+              variant="outline"
+              size="sm"
+              className="border-primary/30 hover:bg-primary/10"
+              asChild
+            >
+              <a href="/" className="flex items-center space-x-2">
+                <ArrowLeft className="h-4 w-4" />
+                <span>Back to Home</span>
+              </a>
+            </Button>
+          </div>
+
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6 animate-fade-in">
               Get in Touch

@@ -23,22 +23,22 @@ const AboutUs = () => {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(31,248,45,0.2),transparent_50%)]" />
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            {/* Back Button */}
-            <div className="mb-8 animate-fade-in">
-              <Button
-                variant="outline"
-                size="sm"
-                className="border-primary/30 hover:bg-primary/10"
-                asChild
-              >
-                <a href="/" className="flex items-center space-x-2">
-                  <ArrowLeft className="h-4 w-4" />
-                  <span>Back to Home</span>
-                </a>
-              </Button>
-            </div>
+          {/* Back Button */}
+          <div className="mb-8 animate-fade-in">
+            <Button
+              variant="outline"
+              size="sm"
+              className="border-primary/30 hover:bg-primary/10"
+              asChild
+            >
+              <a href="/" className="flex items-center space-x-2">
+                <ArrowLeft className="h-4 w-4" />
+                <span>Back to Home</span>
+              </a>
+            </Button>
+          </div>
 
+          <div className="max-w-4xl mx-auto text-center">
             {/* Main Content */}
             <div className="animate-fade-in-up">
               <div className="mb-6">

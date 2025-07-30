@@ -6,6 +6,7 @@ import {
   Instagram,
   Linkedin,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -77,12 +78,12 @@ const Footer = () => {
               Vplus
             </span>
             ™. All Rights Reserved.
-            <a
-              href="/privacy-policy"
+            <Link
+              to="/privacy-policy"
               className="hover:text-primary transition-colors ml-2"
             >
               Privacy Policy
-            </a>
+            </Link>
           </p>
         </div>
       </div>

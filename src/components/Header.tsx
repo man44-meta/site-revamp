@@ -1,47 +1,48 @@
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "./ThemeToggle";
 import logoSvg from "@/assets/shopclips-logo.svg";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo */}
-        <a
-          href="/"
+        <Link
+          to="/"
           className="flex items-center hover:opacity-80 transition-opacity font-bold text-xl text-foreground"
         >
           <img src={logoSvg} alt="Vplus" className="h-8 w-8 mx-0.5" />
           <span className="ml-1">plus</span>
-        </a>
+        </Link>
 
         {/* Navigation */}
         <div className="hidden md:flex items-center space-x-6">
           <nav className="flex items-center space-x-8">
-            <a
-              href="/about-us"
+            <Link
+              to="/about-us"
               className="text-foreground hover:text-primary transition-colors"
             >
               About us
-            </a>
-            <a
-              href="#pricing"
+            </Link>
+            <Link
+              to="/pricing"
               className="text-foreground hover:text-primary transition-colors"
             >
               Pricing
-            </a>
-            <a
-              href="/blogs"
+            </Link>
+            <Link
+              to="/blogs"
               className="text-foreground hover:text-primary transition-colors"
             >
               Blogs
-            </a>
-            <a
-              href="/contact"
+            </Link>
+            <Link
+              to="/contact"
               className="text-foreground hover:text-primary transition-colors"
             >
               Contact
-            </a>
+            </Link>
           </nav>
 
           {/* Action Buttons */}

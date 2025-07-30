@@ -2,13 +2,28 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowLeft, ArrowRight, Sparkles } from "lucide-react";
 
 const PrivacyPolicy = () => (
   <div className="min-h-screen bg-background font-display">
     <Header />
     <section className="pt-24 pb-16 bg-gradient-hero relative">
       <div className="container mx-auto px-4">
+        {/* Back Button */}
+        <div className="mb-8 animate-fade-in">
+          <Button
+            variant="outline"
+            size="sm"
+            className="border-primary/30 hover:bg-primary/10"
+            asChild
+          >
+            <a href="/" className="flex items-center space-x-2">
+              <ArrowLeft className="h-4 w-4" />
+              <span>Back to Home</span>
+            </a>
+          </Button>
+        </div>
+
         <div className="max-w-4xl mx-auto animate-fade-in-up">
           <Card className="bg-gradient-card border-primary/30 shadow-brand">
             <CardContent className="p-8 md:p-12">
