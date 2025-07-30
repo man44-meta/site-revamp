@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ArrowRight, Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const PrivacyPolicy = () => (
   <div className="min-h-screen bg-background font-display">
@@ -17,10 +18,10 @@ const PrivacyPolicy = () => (
             className="border-primary/30 hover:bg-primary/10"
             asChild
           >
-            <a href="/" className="flex items-center space-x-2">
+            <Link to="/" className="flex items-center space-x-2">
               <ArrowLeft className="h-4 w-4" />
               <span>Back to Home</span>
-            </a>
+            </Link>
           </Button>
         </div>
 

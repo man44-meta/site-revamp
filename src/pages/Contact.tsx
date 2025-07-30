@@ -15,6 +15,7 @@ import {
   Clock,
   ArrowLeft,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Contact = () => {
   return (
@@ -32,10 +33,10 @@ const Contact = () => {
               className="border-primary/30 hover:bg-primary/10"
               asChild
             >
-              <a href="/" className="flex items-center space-x-2">
+              <Link to="/" className="flex items-center space-x-2">
                 <ArrowLeft className="h-4 w-4" />
                 <span>Back to Home</span>
-              </a>
+              </Link>
             </Button>
           </div>
 
