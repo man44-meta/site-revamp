@@ -67,7 +67,7 @@ const ShoppableSection = () => {
 
             {/* Content */}
             <div
-              className={`flex-1 text-center lg:text-left ${
+              className={`ml-16 flex-1 text-center lg:text-left ${
                 feature.imageLeft ? "lg:order-2" : "lg:order-1"
               }`}
             >
