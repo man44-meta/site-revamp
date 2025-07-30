@@ -1,6 +1,6 @@
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader } from '@/components/ui/card';
-import { Check, Star } from 'lucide-react';
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Check, Star } from "lucide-react";
 
 const plans = [
   {
@@ -15,11 +15,11 @@ const plans = [
       "All features",
       "Basic Customisation",
       "Basic Analytics",
-      "Basic Support for 1 month"
+      "Basic Support for 1 month",
     ],
     popular: false,
     cta: "Get Started Free",
-    ctaLink: "https://apps.shopify.com/shopclips-shoppable-clips"
+    ctaLink: "https://apps.shopify.com/shopclips-shoppable-clips",
   },
   {
     name: "Basic",
@@ -36,12 +36,12 @@ const plans = [
       "All features",
       "Basic Customisation",
       "Basic Analytics",
-      "Basic Support"
+      "Basic Support",
     ],
     trial: "14-day free trial",
     popular: false,
     cta: "Start Free Trial",
-    ctaLink: "https://apps.shopify.com/shopclips-shoppable-clips"
+    ctaLink: "https://apps.shopify.com/shopclips-shoppable-clips",
   },
   {
     name: "Advanced",
@@ -58,12 +58,12 @@ const plans = [
       "All features",
       "Advanced Customisation",
       "Premium Support",
-      "Growth Based Analytics"
+      "Growth Based Analytics",
     ],
     trial: "14-day free trial",
     popular: true,
     cta: "Start Free Trial",
-    ctaLink: "https://apps.shopify.com/shopclips-shoppable-clips"
+    ctaLink: "https://apps.shopify.com/shopclips-shoppable-clips",
   },
   {
     name: "Plus",
@@ -80,13 +80,13 @@ const plans = [
       "All features",
       "Full Customisation",
       "Advanced Analytics + Insights",
-      "Dedicated Account Manager"
+      "Dedicated Account Manager",
     ],
     trial: "14-day free trial",
     popular: false,
     cta: "Start Free Trial",
-    ctaLink: "https://apps.shopify.com/shopclips-shoppable-clips"
-  }
+    ctaLink: "https://apps.shopify.com/shopclips-shoppable-clips",
+  },
 ];
 
 const PricingSection = () => {
@@ -106,10 +106,10 @@ const PricingSection = () => {
         {/* Pricing Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {plans.map((plan, index) => (
-            <Card 
+            <Card
               key={index}
               className={`relative bg-gradient-card border-border/50 hover:border-primary/30 transition-all duration-300 hover:shadow-glow animate-fade-in-up ${
-                plan.popular ? 'border-primary/50 shadow-brand' : ''
+                plan.popular ? "border-primary/50 shadow-brand" : ""
               }`}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
@@ -123,27 +123,40 @@ const PricingSection = () => {
               )}
 
               <CardHeader className="text-center pb-4">
-                <h3 className="text-xl font-bold text-foreground mb-2">{plan.name}</h3>
+                <h3 className="text-xl font-bold text-foreground mb-2">
+                  {plan.name}
+                </h3>
                 <div className="mb-2">
-                  <span className="text-3xl font-bold text-foreground">{plan.price}</span>
+                  <span className="text-3xl font-bold text-foreground">
+                    {plan.price}
+                  </span>
                   <span className="text-muted-foreground">{plan.period}</span>
                 </div>
                 {plan.yearlyPrice && (
                   <p className="text-sm text-primary">{plan.yearlyPrice}</p>
                 )}
                 {plan.additional && (
-                  <p className="text-xs text-muted-foreground mt-1">{plan.additional}</p>
+                  <p className="text-xs text-muted-foreground mt-1">
+                    {plan.additional}
+                  </p>
                 )}
-                <p className="text-sm text-muted-foreground">{plan.description}</p>
+                <p className="text-sm text-muted-foreground">
+                  {plan.description}
+                </p>
               </CardHeader>
 
               <CardContent className="pt-0">
                 {/* Features List */}
                 <ul className="space-y-3 mb-6">
                   {plan.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-start space-x-2">
+                    <li
+                      key={featureIndex}
+                      className="flex items-start space-x-2"
+                    >
                       <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-sm text-muted-foreground">{feature}</span>
+                      <span className="text-sm text-muted-foreground">
+                        {feature}
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -156,14 +169,14 @@ const PricingSection = () => {
                 )}
 
                 {/* CTA Button */}
-                <Button 
-                  className="w-full"
+                <Button
+                  className={`w-full ${index === 0 ? "mt-[7.2rem]" : ""}`}
                   variant={plan.popular ? "default" : "trial"}
                   asChild
                 >
-                  <a 
-                    href={plan.ctaLink} 
-                    target="_blank" 
+                  <a
+                    href={plan.ctaLink}
+                    target="_blank"
                     rel="noopener noreferrer"
                   >
                     {plan.cta}
