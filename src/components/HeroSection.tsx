@@ -14,22 +14,48 @@ const HeroSection = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-6 items-center min-h-screen">
-          {/* Left Column - Text Content */}
-          <div className="ml-24 text-left animate-fade-in-up">
+          {/* Video - Top on mobile, right on desktop */}
+          <div
+            className="order-1 lg:order-2 animate-fade-in-up"
+            style={{ animationDelay: "0.2s" }}
+          >
+            <div className="relative max-w-[200px] sm:max-w-xs md:max-w-sm mx-auto lg:ml-auto lg:mr-0 lg:ml-24 mb-8 lg:mb-0 mt-20 lg:mt-12">
+              <video
+                className="w-full h-auto rounded-2xl shadow-2xl border border-border/30"
+                autoPlay
+                loop
+                muted
+                playsInline
+                controls={false}
+              >
+                <source src={demoVideo} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              {/* Video overlay for better text contrast */}
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+            </div>
+          </div>
+
+          {/* Text Content - Bottom on mobile, left on desktop */}
+          <div className="order-2 lg:order-1 text-center lg:text-left lg:ml-24 animate-fade-in-up">
             {/* Logo and Brand */}
-            <div className="flex items-center mb-6 animate-fade-in">
-              <img src={logoSvg} alt="Vplus" className="h-16 w-16 mx-0.5" />
-              <span className="ml-2 text-4xl md:text-6xl font-bold text-foreground">
+            <div className="flex items-center justify-center lg:justify-start mb-6 animate-fade-in">
+              <img
+                src={logoSvg}
+                alt="Vplus"
+                className="h-12 w-12 lg:h-16 lg:w-16 mx-0.5"
+              />
+              <span className="ml-2 text-3xl lg:text-4xl xl:text-6xl font-bold text-foreground">
                 plus
               </span>
             </div>
 
             {/* Main Headline with Typewriter */}
             <div className="mb-6 animate-fade-in-up">
-              <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 leading-tight">
+              <h2 className="text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-4 leading-tight">
                 Your Goto for
               </h2>
-              <div className="text-3xl md:text-5xl lg:text-6xl font-bold">
+              <div className="text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold">
                 <TypewriterEffect
                   baseText="Shoppable"
                   words={["videos", "reels", "stories", "floats"]}
@@ -39,7 +65,7 @@ const HeroSection = () => {
             </div>
 
             {/* Subheadline */}
-            <p className="text-lg md:text-xl text-muted-foreground mb-8 animate-fade-in-up">
+            <p className="text-base md:text-lg lg:text-xl text-muted-foreground mb-8 animate-fade-in-up px-4 lg:px-0">
               Transform your Shopify store with interactive video content that
               converts browsers into buyers
             </p>
@@ -63,7 +89,7 @@ const HeroSection = () => {
               </Button>
 
               {/* 5 Stars Rating */}
-              <div className="flex items-center space-x-1 mb-8">
+              <div className="flex items-center justify-center lg:justify-start space-x-1 mb-8">
                 {[1, 2, 3, 4, 5].map((star) => (
                   <Star
                     key={star}
@@ -77,10 +103,10 @@ const HeroSection = () => {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-4 animate-fade-in-up">
+            <div className="flex flex-col sm:flex-row items-center lg:items-start space-y-4 sm:space-y-0 sm:space-x-4 animate-fade-in-up">
               <Button
                 size="lg"
-                className="bg-gradient-brand hover:opacity-90 shadow-brand text-lg px-8 py-3"
+                className="bg-gradient-brand hover:opacity-90 shadow-brand text-lg px-8 py-3 w-full sm:w-auto"
                 asChild
               >
                 <a
@@ -94,7 +120,7 @@ const HeroSection = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-primary/30 hover:bg-primary/10 text-lg px-8 py-3"
+                className="border-primary/30 hover:bg-primary/10 text-lg px-8 py-3 w-full sm:w-auto"
                 asChild
               >
                 <a
@@ -105,28 +131,6 @@ const HeroSection = () => {
                   Start for Free
                 </a>
               </Button>
-            </div>
-          </div>
-
-          {/* Right Column - Video */}
-          <div
-            className="animate-fade-in-up"
-            style={{ animationDelay: "0.2s" }}
-          >
-            <div className="pt-12 relative max-w-sm mx-auto lg:ml-auto lg:mr-0 ml-16">
-              <video
-                className="w-full h-auto rounded-2xl shadow-2xl border border-border/30"
-                autoPlay
-                loop
-                muted
-                playsInline
-                controls={false}
-              >
-                <source src={demoVideo} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-              {/* Video overlay for better text contrast */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
             </div>
           </div>
         </div>

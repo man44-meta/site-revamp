@@ -7,17 +7,6 @@ import storiesSvg from "@/assets/stories.svg";
 const ShoppableSection = () => {
   const features = [
     {
-      title: "Shoppable Stories",
-      description:
-        "Shoppable stories allow users to engage with interactive content that seamlessly integrates product links, enabling a smooth shopping experience directly from visual storytelling.",
-      features: [
-        "Interactive product hotspots with instant purchase options",
-        "Seamless integration with your existing Shopify product catalog",
-      ],
-      image: storiesSvg,
-      imageLeft: true,
-    },
-    {
       title: "Shoppable Reels",
       description:
         "Shoppable reels transform short video content into a dynamic shopping platform, allowing viewers to discover and purchase products featured in the videos with just a click.",
@@ -38,6 +27,17 @@ const ShoppableSection = () => {
       ],
       image: floatSvg,
       imageLeft: true,
+    },
+    {
+      title: "Shoppable Stories",
+      description:
+        "Shoppable stories allow users to engage with interactive content that seamlessly integrates product links, enabling a smooth shopping experience directly from visual storytelling.",
+      features: [
+        "Interactive product hotspots with instant purchase options",
+        "Seamless integration with your existing Shopify product catalog",
+      ],
+      image: storiesSvg,
+      imageLeft: false,
     },
   ];
 
@@ -67,7 +67,7 @@ const ShoppableSection = () => {
 
             {/* Content */}
             <div
-              className={`ml-16 flex-1 text-center lg:text-left ${
+              className={`flex-1 text-center lg:text-left ${
                 feature.imageLeft ? "lg:order-2" : "lg:order-1"
               }`}
             >
@@ -81,7 +81,10 @@ const ShoppableSection = () => {
               {/* Feature Bullet Points */}
               <div className="mb-8">
                 {feature.features.map((featurePoint, idx) => (
-                  <div key={idx} className="flex items-start space-x-3 mb-3">
+                  <div
+                    key={idx}
+                    className="flex items-start space-x-3 mb-3 justify-center lg:justify-start"
+                  >
                     <Star className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                     <p className="text-base text-foreground leading-relaxed">
                       {featurePoint}
