@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Star } from "lucide-react";
-import floatSvg from "@/assets/float.svg";
+import floatVideo from "@/assets/float.mp4";
 import reelsVideo from "@/assets/reels.mp4";
 import storiesSvg from "@/assets/stories.svg";
 
@@ -25,7 +25,7 @@ const ShoppableSection = () => {
         "Non-intrusive floating product displays that follow user scroll",
         "Customizable positioning and timing for optimal conversion rates",
       ],
-      image: floatSvg,
+      image: floatVideo,
     },
     {
       title: "Shoppable Stories",
@@ -126,7 +126,7 @@ const ShoppableSection = () => {
                           loop
                           muted
                           playsInline
-                          className="w-full max-w-64 mx-auto rounded-lg"
+                          className="w-full max-w-48 mx-auto rounded-lg"
                         />
                       ) : (
                         <img
