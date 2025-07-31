@@ -188,8 +188,27 @@ const testimonials = [
 const TestimonialsSection = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [slideDirection, setSlideDirection] = useState<'left' | 'right' | null>(null);
-  const cardsPerPage = 2;
+  
+  // Responsive cards per page
+  const getCardsPerPage = () => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth < 768 ? 1 : 2;
+    }
+    return 2;
+  };
+  
+  const [cardsPerPage, setCardsPerPage] = useState(getCardsPerPage());
   const totalPages = Math.ceil(testimonials.length / cardsPerPage);
+
+  // Update cards per page on window resize
+  useState(() => {
+    const handleResize = () => {
+      setCardsPerPage(getCardsPerPage());
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  });
 
   const nextPage = () => {
     setSlideDirection('left');
@@ -227,10 +246,10 @@ const TestimonialsSection = () => {
 
         {/* Carousel Container */}
         <div className="relative max-w-7xl mx-auto">
-          {/* Navigation Buttons */}
+          {/* Navigation Buttons - Hidden on mobile */}
           <button
             onClick={prevPage}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-16 z-10 bg-background/80 backdrop-blur-sm border border-border/50 rounded-full p-4 hover:bg-background/90 transition-all duration-200 shadow-lg hover:shadow-xl"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-16 z-10 bg-background/80 backdrop-blur-sm border border-border/50 rounded-full p-4 hover:bg-background/90 transition-all duration-200 shadow-lg hover:shadow-xl hidden md:block"
             aria-label="Previous testimonials"
           >
             <ChevronLeft className="h-6 w-6 text-foreground" />
@@ -238,41 +257,41 @@ const TestimonialsSection = () => {
 
           <button
             onClick={nextPage}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-16 z-10 bg-background/80 backdrop-blur-sm border border-border/50 rounded-full p-4 hover:bg-background/90 transition-all duration-200 shadow-lg hover:shadow-xl"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-16 z-10 bg-background/80 backdrop-blur-sm border border-border/50 rounded-full p-4 hover:bg-background/90 transition-all duration-200 shadow-lg hover:shadow-xl hidden md:block"
             aria-label="Next testimonials"
           >
             <ChevronRight className="h-6 w-6 text-foreground" />
           </button>
 
-          {/* Cards Container with Fixed Height */}
-          <div className="flex gap-8 justify-center h-[400px] overflow-hidden">
+          {/* Cards Container with Responsive Height */}
+          <div className="flex gap-4 md:gap-8 justify-center h-[350px] md:h-[400px] overflow-hidden px-4 md:px-0">
             {currentTestimonials.map((testimonial, index) => (
               <Card 
                 key={`${currentPage}-${index}`}
-                className={`bg-gradient-card border-border/50 flex-1 max-w-lg hover:shadow-glow transition-all duration-500 transform ${
+                className={`bg-gradient-card border-border/50 flex-1 max-w-sm md:max-w-lg hover:shadow-glow transition-all duration-500 transform ${
                   slideDirection === 'left' ? 'animate-slide-left' : 
                   slideDirection === 'right' ? 'animate-slide-right' : ''
                 }`}
                 style={{
-                  minHeight: '400px'
+                  minHeight: '350px'
                 }}
               >
-                <CardContent className="p-8 h-full flex flex-col">
+                <CardContent className="p-6 md:p-8 h-full flex flex-col">
                   {/* Stars */}
-                  <div className="flex items-center mb-6 flex-shrink-0">
+                  <div className="flex items-center mb-4 md:mb-6 flex-shrink-0">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 fill-primary text-primary" />
+                      <Star key={i} className="h-4 w-4 md:h-5 md:w-5 fill-primary text-primary" />
                     ))}
                   </div>
                   
                   {/* Review Text */}
-                  <p className="text-muted-foreground mb-6 leading-relaxed flex-1 text-lg">
+                  <p className="text-muted-foreground mb-4 md:mb-6 leading-relaxed flex-1 text-base md:text-lg">
                     "{testimonial.text}"
                   </p>
                   
                   {/* Author - Always at bottom */}
                   <div className="flex-shrink-0 mt-auto">
-                    <p className="font-semibold text-foreground text-lg">{testimonial.name}</p>
+                    <p className="font-semibold text-foreground text-base md:text-lg">{testimonial.name}</p>
                     <p className="text-sm text-primary">{testimonial.company}</p>
                   </div>
                 </CardContent>
@@ -280,13 +299,13 @@ const TestimonialsSection = () => {
             ))}
           </div>
 
-          {/* Pagination Dots */}
-          <div className="flex justify-center items-center space-x-3 mt-8">
+          {/* Mobile Navigation Dots */}
+          <div className="flex justify-center items-center space-x-2 md:space-x-3 mt-6 md:mt-8">
             {Array.from({ length: totalPages }, (_, index) => (
               <button
                 key={index}
                 onClick={() => goToPage(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-200 ${
+                className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-200 ${
                   index === currentPage
                     ? 'bg-primary scale-125'
                     : 'bg-border hover:bg-primary/50'
@@ -294,6 +313,24 @@ const TestimonialsSection = () => {
                 aria-label={`Go to page ${index + 1}`}
               />
             ))}
+          </div>
+
+          {/* Mobile Navigation Buttons */}
+          <div className="flex justify-center items-center space-x-4 mt-6 md:hidden">
+            <button
+              onClick={prevPage}
+              className="bg-background/80 backdrop-blur-sm border border-border/50 rounded-full p-3 hover:bg-background/90 transition-all duration-200 shadow-lg"
+              aria-label="Previous testimonials"
+            >
+              <ChevronLeft className="h-5 w-5 text-foreground" />
+            </button>
+            <button
+              onClick={nextPage}
+              className="bg-background/80 backdrop-blur-sm border border-border/50 rounded-full p-3 hover:bg-background/90 transition-all duration-200 shadow-lg"
+              aria-label="Next testimonials"
+            >
+              <ChevronRight className="h-5 w-5 text-foreground" />
+            </button>
           </div>
         </div>
       </div>
