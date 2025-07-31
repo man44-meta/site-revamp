@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import { Star } from "lucide-react";
 import floatSvg from "@/assets/float.svg";
-import reelsSvg from "@/assets/reels.svg";
+import reelsVideo from "@/assets/reels.mp4";
 import storiesSvg from "@/assets/stories.svg";
 
 const ShoppableSection = () => {
@@ -14,8 +15,7 @@ const ShoppableSection = () => {
         "Real-time product tagging during video playback",
         "Mobile-optimized shopping experience with one-tap purchases",
       ],
-      image: reelsSvg,
-      imageLeft: false,
+      image: reelsVideo,
     },
     {
       title: "Shoppable Floats",
@@ -26,7 +26,6 @@ const ShoppableSection = () => {
         "Customizable positioning and timing for optimal conversion rates",
       ],
       image: floatSvg,
-      imageLeft: true,
     },
     {
       title: "Shoppable Stories",
@@ -37,93 +36,112 @@ const ShoppableSection = () => {
         "Seamless integration with your existing Shopify product catalog",
       ],
       image: storiesSvg,
-      imageLeft: false,
     },
   ];
 
   return (
     <section className="py-20 bg-gradient-section relative">
       <div className="container mx-auto px-4">
-        {features.map((feature, index) => (
-          <div
-            key={feature.title}
-            className={`flex flex-col lg:flex-row items-center gap-12 mb-20 last:mb-0 animate-fade-in-up`}
-            style={{ animationDelay: `${index * 0.2}s` }}
-          >
-            {/* Image */}
-            <div
-              className={`flex-1 ${
-                feature.imageLeft ? "lg:order-1" : "lg:order-2"
-              }`}
-            >
-              <div className="relative">
-                <img
-                  src={feature.image}
-                  alt={feature.title}
-                  className="w-full max-w-56 mx-auto rounded-2xl shadow-card"
-                />
-              </div>
-            </div>
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-brand bg-clip-text text-transparent">
+            Shoppable Features
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            Transform your content into interactive shopping experiences with
+            our powerful shoppable features
+          </p>
+        </div>
 
-            {/* Content */}
-            <div
-              className={`flex-1 text-center lg:text-left ${
-                feature.imageLeft ? "lg:order-2" : "lg:order-1"
-              }`}
+        <div className="flex flex-col space-y-8 max-w-6xl mx-auto">
+          {features.map((feature, index) => (
+            <Card
+              key={feature.title}
+              className="bg-gradient-card border-primary/20 shadow-card transition-all duration-300 animate-fade-in-up"
+              style={{ animationDelay: `${index * 0.2}s` }}
             >
-              <h3 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-brand bg-clip-text text-transparent">
-                {feature.title}
-              </h3>
-              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                {feature.description}
-              </p>
-
-              {/* Feature Bullet Points */}
-              <div className="mb-8">
-                {feature.features.map((featurePoint, idx) => (
-                  <div
-                    key={idx}
-                    className="flex items-start space-x-3 mb-3 justify-center lg:justify-start"
-                  >
-                    <Star className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                    <p className="text-base text-foreground leading-relaxed">
-                      {featurePoint}
+              <CardContent className="p-6">
+                <div className="flex flex-col lg:flex-row items-center gap-8">
+                  {/* Content */}
+                  <div className="flex-1 text-center lg:text-left">
+                    <h3 className="text-3xl font-bold mb-6 bg-gradient-brand bg-clip-text text-transparent">
+                      {feature.title}
+                    </h3>
+                    <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+                      {feature.description}
                     </p>
+
+                    {/* Feature Bullet Points */}
+                    <div className="mb-8">
+                      {feature.features.map((featurePoint, idx) => (
+                        <div
+                          key={idx}
+                          className="flex items-start space-x-3 mb-4 justify-center lg:justify-start"
+                        >
+                          <Star className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                          <p className="text-base text-foreground leading-relaxed">
+                            {featurePoint}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-3 sm:space-y-0 sm:space-x-4">
+                      <Button
+                        size="sm"
+                        className="bg-gradient-brand hover:opacity-90 shadow-brand px-6"
+                        asChild
+                      >
+                        <a
+                          href="https://calendly.com/abhinav-vplus/30min"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Book a Demo
+                        </a>
+                      </Button>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        className="border-primary/30 hover:bg-primary/10 px-6"
+                        asChild
+                      >
+                        <a
+                          href="https://apps.shopify.com/shopclips-shoppable-clips"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Start for Free
+                        </a>
+                      </Button>
+                    </div>
                   </div>
-                ))}
-              </div>
-              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
-                <Button
-                  size="lg"
-                  className="bg-gradient-brand hover:opacity-90 shadow-brand text-lg px-8 py-3"
-                  asChild
-                >
-                  <a
-                    href="https://calendly.com/abhinav-vplus/30min"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Book a Demo
-                  </a>
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-primary/30 hover:bg-primary/10 text-lg px-8 py-3"
-                  asChild
-                >
-                  <a
-                    href="https://apps.shopify.com/shopclips-shoppable-clips"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Start for Free
-                  </a>
-                </Button>
-              </div>
-            </div>
-          </div>
-        ))}
+
+                  {/* Media */}
+                  <div className="flex-shrink-0">
+                    <div className="relative">
+                      {feature.image.endsWith(".mp4") ? (
+                        <video
+                          src={feature.image}
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          className="w-full max-w-64 mx-auto rounded-lg"
+                        />
+                      ) : (
+                        <img
+                          src={feature.image}
+                          alt={feature.title}
+                          className="w-full max-w-48 mx-auto rounded-lg"
+                        />
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       </div>
     </section>
   );
