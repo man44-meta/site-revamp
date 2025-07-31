@@ -13,8 +13,26 @@ import AboutUs from "./pages/AboutUs";
 import Blogs from "./pages/Blogs";
 import Pricing from "./pages/Pricing";
 import ScrollToTop from "./components/ScrollToTop";
+import { usePageTitle } from "./hooks/use-page-title";
 
 const queryClient = new QueryClient();
+
+const AppContent = () => {
+  usePageTitle();
+
+  return (
+    <Routes>
+      <Route path="/" element={<Index />} />
+      <Route path="/contact" element={<Contact />} />
+      <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+      <Route path="/about-us" element={<AboutUs />} />
+      <Route path="/blogs" element={<Blogs />} />
+      <Route path="/pricing" element={<Pricing />} />
+      {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  );
+};
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -24,16 +42,7 @@ const App = () => (
         <Sonner />
         <HashRouter>
           <ScrollToTop />
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="/about-us" element={<AboutUs />} />
-            <Route path="/blogs" element={<Blogs />} />
-            <Route path="/pricing" element={<Pricing />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <AppContent />
         </HashRouter>
       </TooltipProvider>
     </ThemeProvider>
