@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Star } from "lucide-react";
 import floatVideo from "@/assets/float.mp4";
 import reelsVideo from "@/assets/reels.mp4";
-import storiesSvg from "@/assets/stories.svg";
+import storiesVideo from "@/assets/stories.mp4";
 
 const ShoppableSection = () => {
   const features = [
@@ -35,7 +35,7 @@ const ShoppableSection = () => {
         "Interactive product hotspots with instant purchase options",
         "Seamless integration with your existing Shopify product catalog",
       ],
-      image: storiesSvg,
+      image: storiesVideo,
     },
   ];
 
